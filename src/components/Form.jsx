@@ -1,11 +1,12 @@
 import React, {useState} from 'react';
+import { createRecipe } from '../services/recipeService';
 
 const Form = () => {
 
     //State
     const [formData, setFormData] = useState({
         name: "",
-        mainIngredient: "",
+        main_ingredient: "",
         origin: "",
         popularity: "",
     });
@@ -17,12 +18,30 @@ const Form = () => {
         setFormData({...formData, [name]: value});
     };
 
+    const handleFormSubmission = (e) => {
+        e.preventDefault();
+
+        createRecipe(formData);
+
+    };
+
   return (
 
-    <form>
+    <form onSubmit={handleFormSubmission}>
 
         <label htmlFor="name">Name: </label>
         <input id="name" name="name" type="text" value={formData.name} onChange={handleInputChange} required ></input>
+
+        <label htmlFor="main_ingredient">Main Ingredient: </label>
+        <input id="main_ingredient" name="main_ingredient" type="text" value={formData.main_ingredient} onChange={handleInputChange} required ></input>
+
+        <label htmlFor="origin">Origin: </label>
+        <input id="origin" name="origin" type="text" value={formData.origin} onChange={handleInputChange} required ></input>
+
+        <label htmlFor="popularity">Popularity: </label>
+        <input id="popularity" name="popularity" type="number" value={formData.popularity} onChange={handleInputChange} min="1" max="10" placeholder="1 - 10" required ></input>
+
+        <button type="submit" disabled={formData.name === "" || formData.mainIngredient === "" || formData.origin === "" || formData.popularity === ""}>create</button>
 
     </form>
 
