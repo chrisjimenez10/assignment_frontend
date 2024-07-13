@@ -1,6 +1,7 @@
 import React, {useContext} from 'react'
 import { RecipesContext } from '../App';
 import { useParams } from 'react-router-dom';
+import Error from './Error';
 
 const Details = () => {
 
@@ -9,9 +10,16 @@ const Details = () => {
 
     //Route Parameter
     const {recipeId} = useParams();
+
     const singleRecipe = recipeList.find((recipe)=>{
         return recipe.id === Number(recipeId);
     });
+
+    //Error Handling for incorrect recipeId insertion at URL
+    if(!singleRecipe){
+        return <Error />
+    }
+
 
   return (
 

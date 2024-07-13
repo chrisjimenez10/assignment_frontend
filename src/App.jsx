@@ -2,10 +2,12 @@ import {Routes, Route} from "react-router-dom";
 import React, { createContext, useState } from "react";
 import { fetchAllRecipes } from "./services/recipeService";
 
+//Components
 import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Recipes from "./components/Recipes";
 import Details from "./components/Details";
+import Error from "./components/Error";
 
 export const RecipesContext = createContext(null);
 
@@ -34,7 +36,7 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/recipes/:recipeId" element={<Details />} />
-        <Route path="*" element={<h1>Woops, nothing here!</h1>}/> 
+        <Route path="*" element={<Error />}/> 
           //Create a component for Error handling url endpoint and button to navigate back to Home Page
       </Routes>
       </RecipesContext.Provider>
