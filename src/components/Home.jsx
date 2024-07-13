@@ -4,7 +4,9 @@ const Home = () => {
 
   return (
 
-    <div>Welcome to Food Blog</div>
+    <div>
+      <h1>Welcome to Food Blog</h1>
+    </div>
 
   )
 }

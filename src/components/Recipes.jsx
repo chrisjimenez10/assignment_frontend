@@ -18,6 +18,7 @@ const Recipes = () => {
 
     <div>
         <h1>Recipes from Database</h1>
+        <button onClick={()=> navigate("/createrecipe")}>Create Recipe</button>
         <ul>
             {recipeList.map((recipe)=>{
                 return (

@@ -7,6 +7,7 @@ import Home from "./components/Home";
 import Navbar from "./components/Navbar";
 import Recipes from "./components/Recipes";
 import Details from "./components/Details";
+import Create from "./components/Create";
 import Error from "./components/Error";
 
 export const RecipesContext = createContext(null);
@@ -36,8 +37,8 @@ const App = () => {
         <Route path="/" element={<Home />} />
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/recipes/:recipeId" element={<Details />} />
+        <Route path="/createrecipe" element={<Create />} />
         <Route path="*" element={<Error />}/> 
-          //Create a component for Error handling url endpoint and button to navigate back to Home Page
       </Routes>
       </RecipesContext.Provider>
     </main>

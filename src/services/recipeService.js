@@ -13,5 +13,14 @@ const fetchAllRecipes = async () => {
     }
 };
 
+const createRecipe = async (recipeData) => {
+    try{
+        const res = await axios.post(BACKEND_URL, recipeData);
+        console.log(res.data);
+    }catch(error){
+        throw error;
+    }
+};
+
 //Export
-export { fetchAllRecipes, }
+export { fetchAllRecipes, createRecipe}
