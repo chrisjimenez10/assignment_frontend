@@ -1,22 +1,15 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
+import { useNavigate } from 'react-router-dom';
+import { RecipesContext } from '../App';
 
-import { fetchAllRecipes } from '../services/recipeService';
 
 const Recipes = () => {
 
-    //State
-    const [recipeList, setRecipeList] = useState([]);
+    //Context Provider Values
+    const {fetchRecipesDatabase, recipeList} = useContext(RecipesContext);
 
-    //Functions
-    const fetchRecipesDatabase = async () => {
-        try{
-            const listOfRecipes = await fetchAllRecipes();
-            setRecipeList(listOfRecipes);
-        }catch(error){
-            console.error("Error fetching recipes:", error);
-        }
-    }
-
+    const navigate = useNavigate();
+    
     useEffect(()=>{
         fetchRecipesDatabase();
     }, []);
@@ -28,7 +21,7 @@ const Recipes = () => {
         <ul>
             {recipeList.map((recipe)=>{
                 return (
-                    <li key={recipe.id}>
+                    <li key={recipe.id} onClick={()=> navigate(`/recipes/${recipe.id}`)} style={{cursor: "pointer"}}>
                         <dt>{recipe.name}</dt>
                     </li>
                 )
