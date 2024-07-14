@@ -1,6 +1,9 @@
 import React from 'react';
-import Form from './Form';
 import { createRecipe } from '../services/recipeService';
+
+//Components
+import Form from './Form';
+
 
 const Create = () => {
 

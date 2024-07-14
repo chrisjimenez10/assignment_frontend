@@ -1,19 +1,26 @@
-import React, {useContext} from 'react'
+import React, {useContext, useState} from 'react'
 import { RecipesContext } from '../App';
 import { useParams, useNavigate } from 'react-router-dom';
-import Error from './Error';
 import { deleteRecipe } from '../services/recipeService';
 
+//Components
+import Error from './Error';
+import Form from './Form';
+
 const Details = () => {
+
+    //State
+    const [renderForm, setRenderForm] = useState("");
+    const[recipeToEdit, setRecipeToEdit] = useState(null);
 
     const navigate = useNavigate();
 
     //Using Provider Values
     const {recipeList} = useContext(RecipesContext);
 
-    //Route Parameter
+    //Route Parameter - Destructure Params Object
     const {recipeId} = useParams();
-
+    //Find and store recipe that matches id field with id passed via route parameter
     const singleRecipe = recipeList.find((recipe)=>{
         return recipe.id === Number(recipeId);
     });
@@ -31,8 +38,17 @@ const Details = () => {
         <h3>Main Ingredient: {singleRecipe.main_ingredient}</h3>
         <h3>Origin: {singleRecipe.origin}</h3>
         <h3>Popularity: {singleRecipe.popularity}/10</h3>
-        <button>edit</button>
-        <button onClick={()=> {deleteRecipe(singleRecipe.id); navigate("/recipes")}}>delete</button>
+
+        {renderForm === "form" 
+            ? 
+            <Form renderForm={renderForm} setRenderForm={setRenderForm} recipeToEdit={recipeToEdit}/>
+            :
+            <>
+                <button onClick={()=> {setRenderForm("form"); setRecipeToEdit(singleRecipe)}}>edit</button>
+                <button onClick={()=> {deleteRecipe(singleRecipe.id); navigate("/recipes");}}>delete</button>
+            </> 
+        }
+        
     </div>
 
   )

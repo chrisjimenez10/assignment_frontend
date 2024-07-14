@@ -1,7 +1,7 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Form = ({createRecipe}) => {
+const Form = ({createRecipe, renderForm, setRenderForm, recipeToEdit}) => {
 
     const navigate = useNavigate();
 
@@ -12,6 +12,18 @@ const Form = ({createRecipe}) => {
         origin: "",
         popularity: "",
     });
+
+    //Populate Form input fields with chosen recipe to edit
+    useEffect(()=>{
+        if(recipeToEdit){
+            setFormData({
+                name: recipeToEdit.name,
+                main_ingredient: recipeToEdit.main_ingredient,
+                origin: recipeToEdit.origin,
+                popularity: recipeToEdit.popularity,
+            });
+        }
+    },[recipeToEdit]);
 
     //Functions
     const handleInputChange = (e) => {
@@ -50,6 +62,8 @@ const Form = ({createRecipe}) => {
         <input id="popularity" name="popularity" type="number" value={formData.popularity} onChange={handleInputChange} min="1" max="10" placeholder="1 - 10" required ></input>
 
         <button type="submit" disabled={formData.name === "" || formData.mainIngredient === "" || formData.origin === "" || formData.popularity === ""}>create</button>
+
+        {renderForm === "form" ? <button onClick={()=> setRenderForm("")}>cancel</button> : ""}
 
     </form>
 
