@@ -18,11 +18,27 @@ const createRecipe = async (recipeData) => {
         const res = await axios.post(BACKEND_URL, recipeData);
         console.log(res.data);
     }catch(error){
-        throw error;
+        console.log(error);
     }
 };
 
+const updateRecipe = async (id, recipeData) => {
+    try{
+        const res = await axios.put(`${BACKEND_URL}/${id}`, recipeData);
+        console.log(res.data);
+    }catch(error){
+        console.log(error);
+    }
+};
 
+const deleteRecipe = async (id) => {
+    try{
+        const res = await axios.delete(`${BACKEND_URL}/${id}`);
+        console.log(res.data);
+    }catch(error){
+        console.log(error);
+    }
+};
 
 //Export
-export { fetchAllRecipes, createRecipe}
+export { fetchAllRecipes, createRecipe, updateRecipe, deleteRecipe};

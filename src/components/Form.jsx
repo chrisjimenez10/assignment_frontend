@@ -1,7 +1,9 @@
 import React, {useState} from 'react';
-import { createRecipe } from '../services/recipeService';
+import { useNavigate } from 'react-router-dom';
 
-const Form = () => {
+const Form = ({createRecipe}) => {
+
+    const navigate = useNavigate();
 
     //State
     const [formData, setFormData] = useState({
@@ -22,7 +24,13 @@ const Form = () => {
         e.preventDefault();
 
         createRecipe(formData);
-
+        setFormData({
+            name: "",
+            main_ingredient: "",
+            origin: "",
+            popularity: "",
+        });
+        navigate("/recipes");
     };
 
   return (

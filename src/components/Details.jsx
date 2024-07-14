@@ -1,9 +1,12 @@
 import React, {useContext} from 'react'
 import { RecipesContext } from '../App';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import Error from './Error';
+import { deleteRecipe } from '../services/recipeService';
 
 const Details = () => {
+
+    const navigate = useNavigate();
 
     //Using Provider Values
     const {recipeList} = useContext(RecipesContext);
@@ -28,6 +31,8 @@ const Details = () => {
         <h3>Main Ingredient: {singleRecipe.main_ingredient}</h3>
         <h3>Origin: {singleRecipe.origin}</h3>
         <h3>Popularity: {singleRecipe.popularity}/10</h3>
+        <button>edit</button>
+        <button onClick={()=> {deleteRecipe(singleRecipe.id); navigate("/recipes")}}>delete</button>
     </div>
 
   )

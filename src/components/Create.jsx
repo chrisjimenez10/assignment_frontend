@@ -1,5 +1,6 @@
 import React from 'react';
 import Form from './Form';
+import { createRecipe } from '../services/recipeService';
 
 const Create = () => {
 
@@ -9,7 +10,9 @@ const Create = () => {
 
         <h1>Create New Recipe</h1>
         
-        <Form />
+        <Form 
+            createRecipe={createRecipe}
+        />
 
     </div>
 
