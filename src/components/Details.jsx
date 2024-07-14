@@ -1,7 +1,7 @@
 import React, {useContext, useState} from 'react'
 import { RecipesContext } from '../App';
 import { useParams, useNavigate } from 'react-router-dom';
-import { deleteRecipe } from '../services/recipeService';
+import { deleteRecipe, updateRecipe } from '../services/recipeService';
 
 //Components
 import Error from './Error';
@@ -41,7 +41,7 @@ const Details = () => {
 
         {renderForm === "form" 
             ? 
-            <Form renderForm={renderForm} setRenderForm={setRenderForm} recipeToEdit={recipeToEdit}/>
+            <Form renderForm={renderForm} setRenderForm={setRenderForm} recipeToEdit={recipeToEdit} updateRecipe={updateRecipe}/>
             :
             <>
                 <button onClick={()=> {setRenderForm("form"); setRecipeToEdit(singleRecipe)}}>edit</button>

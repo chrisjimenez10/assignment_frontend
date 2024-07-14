@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const Form = ({createRecipe, renderForm, setRenderForm, recipeToEdit}) => {
+const Form = ({createRecipe, renderForm, setRenderForm, recipeToEdit, updateRecipe}) => {
 
     const navigate = useNavigate();
 
@@ -35,13 +35,17 @@ const Form = ({createRecipe, renderForm, setRenderForm, recipeToEdit}) => {
     const handleFormSubmission = (e) => {
         e.preventDefault();
 
-        createRecipe(formData);
-        setFormData({
-            name: "",
-            main_ingredient: "",
-            origin: "",
-            popularity: "",
-        });
+        if(recipeToEdit){
+            updateRecipe(recipeToEdit.id, formData);
+        }else{
+            createRecipe(formData);
+            setFormData({
+                name: "",
+                main_ingredient: "",
+                origin: "",
+                popularity: "",
+            });
+        }
         navigate("/recipes");
     };
 
@@ -61,8 +65,9 @@ const Form = ({createRecipe, renderForm, setRenderForm, recipeToEdit}) => {
         <label htmlFor="popularity">Popularity: </label>
         <input id="popularity" name="popularity" type="number" value={formData.popularity} onChange={handleInputChange} min="1" max="10" placeholder="1 - 10" required ></input>
 
-        <button type="submit" disabled={formData.name === "" || formData.mainIngredient === "" || formData.origin === "" || formData.popularity === ""}>create</button>
+        <button type="submit" disabled={formData.name === "" || formData.mainIngredient === "" || formData.origin === "" || formData.popularity === ""}>{recipeToEdit ? "edit" : "create"}</button>
 
+        {/* Hide Edit Form in Details component ONLY - Will render only in Details Component */}
         {renderForm === "form" ? <button onClick={()=> setRenderForm("")}>cancel</button> : ""}
 
     </form>
