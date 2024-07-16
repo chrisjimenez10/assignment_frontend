@@ -4,9 +4,16 @@ const Home = () => {
 
   return (
 
-    <div>
-      <h1>Welcome to Food Blog</h1>
-    </div>
+    <>
+      <div className='flex items-center flex-col bg-[url("src/assets/images/food-dishes.jpg")] h-96'>
+  
+        <h1 className='text-center text-7xl text-white'>Welcome to Recipe Blog</h1>
+        
+      </div>
+    </>
+
+    
+
 
   )
 }

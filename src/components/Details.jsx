@@ -33,7 +33,7 @@ const Details = () => {
 
   return (
 
-    <div>
+    <div className='leading-loose text-3xl text-center'>
         <h1>{singleRecipe.name}</h1>
         <h3>Main Ingredient: {singleRecipe.main_ingredient}</h3>
         <h3>Origin: {singleRecipe.origin}</h3>
@@ -44,8 +44,8 @@ const Details = () => {
             <Form renderForm={renderForm} setRenderForm={setRenderForm} recipeToEdit={recipeToEdit} updateRecipe={updateRecipe}/>
             :
             <>
-                <button onClick={()=> {setRenderForm("form"); setRecipeToEdit(singleRecipe)}}>edit</button>
-                <button onClick={()=> {deleteRecipe(singleRecipe.id); navigate("/recipes");}}>delete</button>
+                <button className="bg-sky-600 hover:bg-sky-700 text-white text-lg font-bold py-2 px-4 rounded-full mx-5 shadow-md" onClick={()=> {setRenderForm("form"); setRecipeToEdit(singleRecipe)}}>Edit</button>
+                <button className="bg-red-500 hover:bg-red-700 text-white text-lg font-bold py-2 px-4 rounded-full shadow-md" onClick={()=> {deleteRecipe(singleRecipe.id); navigate("/recipes");}}>Delete</button>
             </> 
         }
         
