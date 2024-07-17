@@ -22,7 +22,7 @@ const Recipes = () => {
             <button className="bg-black hover:bg-white hover:text-black text-white text-xs font-semibold py-2 px-3 m-2 rounded-full shadow-md" onClick={()=> navigate("/createrecipe")}>Create Recipe</button>
         </section>
         
-        <ul className='text-lg ml-4 mt-4'>
+        <ul className='text-lg ml-4 mt-4 font-semibold'>
             {recipeList.map((recipe)=>{
                 return (
                     <li key={recipe.id} onClick={()=> navigate(`/recipes/${recipe.id}`)} style={{cursor: "pointer"}}>
