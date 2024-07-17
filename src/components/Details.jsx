@@ -25,6 +25,17 @@ const Details = () => {
         return recipe.id === Number(recipeId);
     });
 
+    //Functions
+    const handleDelete = (id) => {
+        deleteRecipe(id);
+        navigate("/recipes");
+    };
+
+    const handleEdit = (recipeToEdit) => {
+        setRecipeToEdit(recipeToEdit);
+        setRenderForm("form");
+    };
+
     //Error Handling for incorrect recipeId insertion at URL
     if(!singleRecipe){
         return <Error />
@@ -44,8 +55,8 @@ const Details = () => {
             <Form renderForm={renderForm} setRenderForm={setRenderForm} recipeToEdit={recipeToEdit} updateRecipe={updateRecipe}/>
             :
             <>
-                <button onClick={()=> {setRenderForm("form"); setRecipeToEdit(singleRecipe)}}>edit</button>
-                <button onClick={()=> {deleteRecipe(singleRecipe.id); navigate("/recipes");}}>delete</button>
+                <button onClick={()=> handleEdit(singleRecipe)}>edit</button>
+                <button onClick={()=> handleDelete(singleRecipe.id)}>delete</button>
             </> 
         }
         
