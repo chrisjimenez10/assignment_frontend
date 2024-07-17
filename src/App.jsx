@@ -30,7 +30,7 @@ const App = () => {
 
   return (
 
-    <main className="bg-orange-100 min-h-screen text-slate-950 text-wrap">
+    <main className="bg-white min-h-screen text-slate-950 text-wrap">
       <RecipesContext.Provider value={{fetchRecipesDatabase, recipeList}}>
       <Navbar />
       <Routes>
