@@ -44,8 +44,8 @@ const Details = () => {
 
   return (
 
-    <div>
-        <h1>{singleRecipe.name}</h1>
+    <div className='leading-loose text-2xl ml-4 mt-5'>
+        <h1 className='font-bold outline-double pl-2 w-60'>{singleRecipe.name}</h1>
         <h3>Main Ingredient: {singleRecipe.main_ingredient}</h3>
         <h3>Origin: {singleRecipe.origin}</h3>
         <h3>Popularity: {singleRecipe.popularity}/10</h3>
@@ -55,10 +55,12 @@ const Details = () => {
             <Form renderForm={renderForm} setRenderForm={setRenderForm} recipeToEdit={recipeToEdit} updateRecipe={updateRecipe}/>
             :
             <>
-                <button onClick={()=> handleEdit(singleRecipe)}>edit</button>
-                <button onClick={()=> handleDelete(singleRecipe.id)}>delete</button>
+                <button className="bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold py-2 px-4 rounded-full mx-5 shadow-md" onClick={()=> handleEdit(singleRecipe)}>Edit</button>
+                <button className="bg-red-500 hover:bg-red-700 text-white text-sm font-bold py-2 px-4 rounded-full shadow-md" onClick={()=> handleDelete(singleRecipe.id)}>Delete</button>
             </> 
         }
+
+        <img src='/src/assets/images/food-dishes.jpg' alt='table-food' width="300px" height="300px" className='mt-5 rounded-lg'/>
         
     </div>
 

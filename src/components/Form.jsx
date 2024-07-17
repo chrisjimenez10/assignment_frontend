@@ -51,19 +51,19 @@ const Form = ({createRecipe, renderForm, setRenderForm, recipeToEdit, updateReci
 
   return (
 
-    <form onSubmit={handleFormSubmission}>
+    <form onSubmit={handleFormSubmission} className='leading-loose'>
 
-        <label htmlFor="name">Name: </label>
-        <input id="name" name="name" type="text" value={formData.name} onChange={handleInputChange} required ></input>
+        <label htmlFor="name" className='font-bold'>Name: </label>
+        <input id="name" name="name" type="text" value={formData.name} onChange={handleInputChange} required className='bg-gray-200 rounded-md pl-1 font-semibold'></input>
 
-        <label htmlFor="main_ingredient">Main Ingredient: </label>
-        <input id="main_ingredient" name="main_ingredient" type="text" value={formData.main_ingredient} onChange={handleInputChange} required ></input>
+        <label htmlFor="main_ingredient" className='font-bold'>Main Ingredient: </label>
+        <input id="main_ingredient" name="main_ingredient" type="text" value={formData.main_ingredient} onChange={handleInputChange} required className='bg-gray-200 rounded-md pl-1 font-semibold'></input>
 
-        <label htmlFor="origin">Origin: </label>
-        <input id="origin" name="origin" type="text" value={formData.origin} onChange={handleInputChange} required ></input>
+        <label htmlFor="origin" className='font-bold'>Origin: </label>
+        <input id="origin" name="origin" type="text" value={formData.origin} onChange={handleInputChange} required className='bg-gray-200 rounded-md pl-1 font-semibold'></input>
 
-        <label htmlFor="popularity">Popularity: </label>
-        <input id="popularity" name="popularity" type="number" value={formData.popularity} onChange={handleInputChange} min="1" max="10" placeholder="1 - 10" required ></input>
+        <label htmlFor="popularity" className='font-bold'>Popularity: </label>
+        <input id="popularity" name="popularity" type="number" value={formData.popularity} onChange={handleInputChange} min="1" max="10" placeholder="1 - 10" required className='bg-gray-200 rounded-md pl-1 font-semibold mt-2'></input>
 
         <button type="submit" disabled={formData.name === "" || formData.mainIngredient === "" || formData.origin === "" || formData.popularity === ""}>{recipeToEdit ? "edit" : "create"}</button>
 
