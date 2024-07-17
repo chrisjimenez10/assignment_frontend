@@ -9,15 +9,17 @@ const Create = () => {
 
   return (
 
-    <div>
+    <>
 
-        <h1>Create New Recipe</h1>
+        <h1 className='text-3xl mt-5 text-center'>Create New Recipe</h1>
         
-        <Form 
-            createRecipe={createRecipe}
-        />
-
-    </div>
+        <main className='mt-5 ml-4 w-36'>
+          <Form
+              createRecipe={createRecipe}
+          />
+        </main>
+        
+    </>
 
   )
 }
