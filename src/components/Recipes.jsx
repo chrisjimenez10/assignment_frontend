@@ -23,7 +23,7 @@ const Recipes = () => {
             {recipeList.map((recipe)=>{
                 return (
                     <li key={recipe.id} onClick={()=> navigate(`/recipes/${recipe.id}`)} style={{cursor: "pointer"}}>
-                        <dt>{recipe.name} {recipe.popularity > 7 ? <img src='src\assets\images\gold-star.png'/> : ""}</dt>
+                        <dt>{recipe.name} {recipe.popularity > 7 ? <i>(Top Rating)</i>: ""}</dt>
                     </li>
                 )
             })}
