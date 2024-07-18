@@ -44,24 +44,28 @@ const Details = () => {
 
   return (
 
-    <div className='leading-loose text-2xl ml-4 mt-5'>
-        <h1 className='font-bold outline-double pl-2 w-60'>{singleRecipe.name}</h1>
-        <h3>Main Ingredient: {singleRecipe.main_ingredient}</h3>
-        <h3>Origin: {singleRecipe.origin}</h3>
-        <h3>Popularity: {singleRecipe.popularity}/10</h3>
+    <div className='leading-relaxed ml-4 mt-5'>
+        <h1 className='font-bold outline-double pl-2 py-2 w-60 text-3xl'>{singleRecipe.name}</h1>
+        <section className='text-2xl mt-2'> 
+            <h3>Main Ingredient: {singleRecipe.main_ingredient}</h3>
+            <h3>Origin: {singleRecipe.origin}</h3>
+            <h3>Popularity: {singleRecipe.popularity}/10</h3>
+        </section>
+
 
         {renderForm === "form" 
-            ? 
-            <Form renderForm={renderForm} setRenderForm={setRenderForm} recipeToEdit={recipeToEdit} updateRecipe={updateRecipe}/>
+            ?
+            <section className='mt-2 w-36'>
+                <Form renderForm={renderForm} setRenderForm={setRenderForm} recipeToEdit={recipeToEdit} updateRecipe={updateRecipe}/>
+            </section>
             :
             <>
-                <button className="bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold py-2 px-4 rounded-full mx-5 shadow-md" onClick={()=> handleEdit(singleRecipe)}>Edit</button>
+                <button className="hover:bg-sky-600 bg-sky-700 text-white text-sm font-bold py-2 px-4 rounded-full mx-5 mt-3 shadow-md" onClick={()=> handleEdit(singleRecipe)}>Edit</button>
                 <button className="bg-red-500 hover:bg-red-700 text-white text-sm font-bold py-2 px-4 rounded-full shadow-md" onClick={()=> handleDelete(singleRecipe.id)}>Delete</button>
             </> 
         }
 
-        <img src='/src/assets/images/food-dishes.jpg' alt='table-food' width="300px" height="300px" className='mt-5 rounded-lg'/>
-        
+        <img src='/src/assets/images/food-dishes.jpg' alt='table-food' width="300px" height="300px" className='mt-5 rounded-lg shadow-xl'/>
     </div>
 
   )
