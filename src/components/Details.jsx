@@ -54,11 +54,13 @@ const Details = () => {
 
 
         {renderForm === "form" 
-            ? 
-            <Form renderForm={renderForm} setRenderForm={setRenderForm} recipeToEdit={recipeToEdit} updateRecipe={updateRecipe}/>
+            ?
+            <section className='mt-2 w-36'>
+                <Form renderForm={renderForm} setRenderForm={setRenderForm} recipeToEdit={recipeToEdit} updateRecipe={updateRecipe}/>
+            </section>
             :
             <>
-                <button className="bg-sky-600 hover:bg-sky-700 text-white text-sm font-bold py-2 px-4 rounded-full mx-5 mt-3 shadow-md" onClick={()=> handleEdit(singleRecipe)}>Edit</button>
+                <button className="hover:bg-sky-600 bg-sky-700 text-white text-sm font-bold py-2 px-4 rounded-full mx-5 mt-3 shadow-md" onClick={()=> handleEdit(singleRecipe)}>Edit</button>
                 <button className="bg-red-500 hover:bg-red-700 text-white text-sm font-bold py-2 px-4 rounded-full shadow-md" onClick={()=> handleDelete(singleRecipe.id)}>Delete</button>
             </> 
         }
