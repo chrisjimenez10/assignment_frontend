@@ -17,7 +17,7 @@ const Recipes = () => {
   return (
 
     <>
-        <section className='flex flex-col items-center mt-5 bg-[url("src/assets/images/food-dishes.jpg")] py-3'>
+        <section className='flex flex-col items-center mt-5 bg-[url("/images/food-dishes.jpg")] py-3'>
             <h1 className='text-center text-3xl bg-white bg-opacity-80 rounded-md p-2 shadow-lg'>List of Recipes</h1>
             <button className="bg-black hover:bg-white hover:text-black text-white text-xs font-semibold py-2 px-3 m-2 rounded-full shadow-md" onClick={()=> navigate("/createrecipe")}>Create Recipe</button>
         </section>

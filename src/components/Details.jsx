@@ -65,7 +65,7 @@ const Details = () => {
             </> 
         }
 
-        <img src='/src/assets/images/food-dishes.jpg' alt='table-food' width="300px" height="300px" className='mt-5 rounded-lg shadow-xl'/>
+        <img src='/images/food-dishes.jpg' alt='table-food' width="300px" height="300px" className='mt-5 rounded-lg shadow-xl'/>
     </div>
 
   )

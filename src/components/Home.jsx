@@ -4,7 +4,7 @@ const Home = () => {
 
   return (
     <>
-      <div className='flex items-center flex-col bg-[url("src/assets/images/food-dishes.jpg")] h-96 shadow-lg'>
+      <div className='flex items-center flex-col bg-[url("/images/food-dishes.jpg")] h-96 shadow-lg'>
         <h1 className='text-center text-5xl text-black mt-24 drop-shadow-2xl p-5 bg-white bg-opacity-80 rounded-md'>SavorVerse Wiki</h1>
       </div>
       <p className='mt-5 ml-4 font-semibold'>
