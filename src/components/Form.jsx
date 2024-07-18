@@ -65,10 +65,10 @@ const Form = ({createRecipe, renderForm, setRenderForm, recipeToEdit, updateReci
         <label htmlFor="popularity" className='font-bold'>Popularity: </label>
         <input id="popularity" name="popularity" type="number" value={formData.popularity} onChange={handleInputChange} min="1" max="10" placeholder="1 - 10" required className='bg-gray-200 rounded-md pl-1 font-semibold mt-2'></input>
 
-        <button type="submit" disabled={formData.name === "" || formData.mainIngredient === "" || formData.origin === "" || formData.popularity === ""}>{recipeToEdit ? "edit" : "create"}</button>
+        <button className='ml-4 bg-amber-500 text-black hover:bg-black hover:text-amber-500 p-1 text-base font-semibold hover:cursor-pointer rounded-full' type="submit" disabled={formData.name === "" || formData.mainIngredient === "" || formData.origin === "" || formData.popularity === ""}>{recipeToEdit ? "Edit" : "Create"}</button>
 
         {/* Hide Edit Form in Details component ONLY - Will render only in Details Component */}
-        {renderForm === "form" ? <button onClick={()=> setRenderForm("")}>cancel</button> : ""}
+        {renderForm === "form" ? <button onClick={()=> setRenderForm("")}>Cancel</button> : ""}
 
     </form>
 
