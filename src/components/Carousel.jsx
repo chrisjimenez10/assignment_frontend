@@ -9,7 +9,7 @@ const Carousel = () => {
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTzKfCJq96hyvyFgjLHqCqAjVdL6wL2dbDT0g&s",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQPBO4qza0xqzlgXOKSrzffEXYxhRUberg9WQ&s",
         "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFjbIMVQtrlBz0qItjx5MjzuL6xv_JVJUHtw&s",
-        "public/images/food-dishes.jpg"
+        "/images/food-dishes.jpg"
     ];
 
     const length = images.length;
