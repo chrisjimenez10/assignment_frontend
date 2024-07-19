@@ -9,6 +9,7 @@ import Recipes from "./components/Recipes";
 import Details from "./components/Details";
 import Create from "./components/Create";
 import Error from "./components/Error";
+import Gallery from "./components/Gallery";
 
 export const RecipesContext = createContext(null);
 
@@ -38,6 +39,7 @@ const App = () => {
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/recipes/:recipeId" element={<Details />} />
         <Route path="/createrecipe" element={<Create />} />
+        <Route path="/gallery" element={<Gallery />} />
         <Route path="*" element={<Error />}/> 
       </Routes>
       </RecipesContext.Provider>
